@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesión - TurnoMed</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-card">
+      <h2>Iniciar Sesión</h2>
+      <form id="loginForm">
+        <input type="text" id="rut" class="form-control" placeholder="RUT (Ej: 12345678-9)" required />
+        <input type="password" id="password" class="form-control" placeholder="Contraseña" required />
+        <div id="loginError" class="text-danger">❌ RUT o contraseña incorrectos</div>
+        <button type="submit" class="btn-submit">Ingresar</button>
+        <div class="form-footer">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+        <div class="form-footer">
+            <a href="registro.html"> Cuenta nuevo </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+ <script src="login.js"></script>
+</body>
+</html>

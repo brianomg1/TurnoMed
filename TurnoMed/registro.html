@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Usuario - TurnoMed</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-card">
+      <h2>Crear Cuenta</h2>
+      <form id="registroForm">
+        <input type="text" id="nuevoRut" class="form-control" placeholder="RUT (Ej: 12345678-9)" required />
+        <input type="password" id="nuevoPassword" class="form-control" placeholder="Contraseña" required />
+        <select id="nuevoRol" class="form-control" required>
+          <option value="">Seleccionar rol</option>
+          <option value="funcionario">Funcionario</option>
+          <option value="coordinador">Coordinador</option>
+        </select>
+        <div id="registroError" class="text-danger"></div>
+        <button type="submit" class="btn-submit">Registrar</button>
+        <div class="form-footer">
+          <a href="login.html">¿Ya tienes cuenta? Inicia sesión</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="registro.js"></script>
+</body>
+</html>

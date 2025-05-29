@@ -1,4 +1,4 @@
-// ===== CONTENIDO DE calendario_brian.js INCORPORADO =====
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const funcionarios = [
