@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" class="admin-view">
+<head>
+  <meta charset="UTF-8">
+  <title>Historial de Cambios de Turnos - Admin</title>
+  <link rel="stylesheet" href="calendario.css">
+  <script defer src="calendario.js"></script>
+</head>
+<body class="admin-view">
+
+  <!-- Menú de navegación privado -->
+  <nav>
+    <ul>
+      <li><a href="index.html" id="inicioLink">Inicio</a></li>
+      <li><a href="coordinador.html" id="coordinadorLink">Coordinador</a></li>
+      <li><a href="funcionario.html" id="funcionarioLink">Funcionario</a></li>
+      <li><a href="admin.html" id="adminLink">Administrador</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido del historial -->
+  <main>
+    <h1>Historial de Cambios de Turnos</h1>
+    <div class="tabla-contenedor">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Horario</th>
+            <th>Motivo</th>
+            <th>Fecha/Hora Registro</th>
+            <th>Coordinador</th>
+            <th>Funcionario</th>
+          </tr>
+        </thead>
+        <tbody id="adminHistorialBody">
+          <!-- JS inserta aquí -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+</html>
