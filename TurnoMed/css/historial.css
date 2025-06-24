@@ -1,0 +1,22 @@
+body {
+  background: #f8f9fa;
+}
+
+#historialLista li.list-group-item {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#historialLista li.list-group-item:hover {
+  background-color: #e9ecef;
+}
+
+.modal-body p {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 576px) {
+  .modal-body p {
+    font-size: 1rem;
+  }
+}

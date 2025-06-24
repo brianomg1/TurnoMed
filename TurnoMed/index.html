@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TurnoMed - Sistema de Turnos Hospitalarios</title>
-    <link rel="stylesheet" href="calendario.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TurnoMed | Panel</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="home-view">
-    <div class="app-header">
-        <h1 class="app-title">TurnoMed</h1>
-        <p class="app-subtitle">Sistema de Gestión de Turnos Médicos</p>
-    </div>
+<body>
 
-    <nav class="main-menu">
-  <div class="menu-container">
-    <ul>
-      <li><a href="index.html" id="inicioLink">Inicio</a></li>
-      <li><a href="coordinador.html" id="coordinadorLink">Coordinador</a></li>
-      <li><a href="funcionario.html" id="funcionarioLink">Funcionario</a></li>
-      <li><a href="gestionUsuario.html" id="gestionUsuarioLink">Administrador</a></li>
+  <nav class="navbar">
+    <div class="logo">TurnoMed</div>
+    <ul class="nav-links">
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="cambio-urgente.html">Urgente</a></li>
+      <li><a href="Historial.html">Historial</a></li>
+      <li><a href="login.html">Iniciar Sesión</a></li>
     </ul>
-    <a href="login.html" class="btn-login"> Iniciar Sesión</a>
-  </div>
-    </nav>
+  </nav>
 
-    <div class="welcome-container">
-        <h2>Bienvenido a TurnoMed</h2>
-        <p>El sistema integral para la gestión y visualización de turnos del personal hospitalario.</p>
-        
-        <div class="role-cards">
-            <div class="role-card">
-                <h3>Coordinador</h3>
-                <p>Gestiona los horarios del personal hospitalario.</p>
-                <a href="coordinador.html" class="btn">Acceder</a>
-            </div>
-            
-            <div class="role-card">
-                <h3>Funcionario</h3>
-                <p>Consulta tus turnos asignados.</p>
-                <a href="funcionario.html" class="btn">Acceder</a>
-            </div>
-            
-            <div class="role-card">
-                <h3>Administrador</h3>
-                <p>Gestiona las cuentas de los usuarios del sistema.</p>
-                <a href="gestionUsuario.html" class="btn">Acceder</a>
-            </div>
-        </div>
-    </div>
+    <main class="card-grid">
+    <a href="calendario.html" class="card-mini">
+      <h3>Calendario</h3>
+      <p>Ver tus turnos asignados</p>
+    </a>
 
-    <footer>
-        <p>TurnoMed &copy; 2025 - Todos los derechos reservados</p>
-    </footer>
+    <a href="cambio-urgente.html" class="card-mini">
+      <h3>Urgente</h3>
+      <p>Solicitar cambio inmediato</p>
+    </a>
 
-    <script src="calendario.js"></script>
+    <a href="calendar-funcionario.html" class="card-mini">
+      <h3>Calendario Funcionario</h3>
+      <p>Calendario personalizado por funcionario</p>
+    </a>
+
+    <a href="reportes.html" class="card-mini">
+      <h3>Reportes</h3>
+      <p>Generar y visualizar reportes de asistencia y cambios de turnos</p>
+    </a>
+
+    <a href="notificaciones.html" class="card-mini">
+      <h3>Notificaciones</h3>
+      <p>Enviar notificaciones masivas a grupos</p>
+    </a>
+
+    <a href="permisos.html" class="card-mini">
+      <h3>Permisos</h3>
+      <p>Administrar permisos y vacaciones</p>
+    </a>
+  </main>
+
+
+  <footer>
+    <p>© 2025 TurnoMed</p>
+  </footer>
+
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TurnoMed | Mi Calendario</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/funcionario-calendario.css" />
+</head>
+<body>
+
+  <header>
+    <h1> Calendario de Turnos - Funcionario</h1>
+    <nav>
+      <a href="index.html" class="btn">← Volver al Inicio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="filtros">
+      <label>Área:
+        <select id="filtroArea">
+          <option value="">Todas</option>
+          <option value="Urgencias">Urgencias</option>
+          <option value="Pediatría">Pediatría</option>
+          <option value="Cirugía">Cirugía</option>
+        </select>
+      </label>
+
+      <label>Fecha:
+        <input type="month" id="filtroFecha" />
+      </label>
+    </section>
+
+    <div id="calendar"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="js/funcionario-calendario.js"></script>
+</body>
+</html>

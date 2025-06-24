@@ -1,0 +1,85 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4a90e2, #50e3c2);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background-color: white;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  width: 360px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-top: 0.4rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+button {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.9rem;
+  background: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #357ABD;
+}
+
+.error-message {
+  margin-top: 1rem;
+  color: #d93025;
+  font-weight: 600;
+}
+
+p a#forgotPassword {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: #4a90e2;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+p a#forgotPassword:hover {
+  color: #357ABD;
+}

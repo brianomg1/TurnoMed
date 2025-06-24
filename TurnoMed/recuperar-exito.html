@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recuperación Enviada - TurnoMed</title>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <main class="login-container">
+    <h1>Enlace de Recuperación Enviado</h1>
+    <p>Hemos enviado un enlace para restablecer tu contraseña a tu correo registrado.</p>
+    <p>Por favor, revisa tu bandeja de entrada.</p>
+    <button id="volverLogin" class="btn btn-primary">Volver al Inicio de Sesión</button>
+  </main>
+
+  <script>
+    document.getElementById('volverLogin').addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

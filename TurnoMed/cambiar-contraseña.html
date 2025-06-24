@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cambiar Contraseña - TurnoMed</title>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <main class="login-container">
+    <h1>Cambiar Contraseña</h1>
+    <form id="cambiarPassForm" novalidate>
+      <label for="nuevaPass">Nueva contraseña:</label>
+      <input type="password" id="nuevaPass" name="nuevaPass" required minlength="6" placeholder="Mínimo 6 caracteres" />
+      
+      <label for="confirmPass">Confirmar contraseña:</label>
+      <input type="password" id="confirmPass" name="confirmPass" required minlength="6" placeholder="Repite la contraseña" />
+
+      <button type="submit">Cambiar Contraseña</button>
+    </form>
+    <p id="mensaje" class="error-message"></p>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('cambiarPassForm');
+      const mensaje = document.getElementById('mensaje');
+
+      const rut = sessionStorage.getItem('rutRecuperar');
+
+      if (!rut) {
+        mensaje.style.color = 'red';
+        mensaje.textContent = 'No se encontró información de usuario para cambiar contraseña.';
+        form.style.display = 'none';
+        return;
+      }
+
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const nuevaPass = form.nuevaPass.value.trim();
+        const confirmPass = form.confirmPass.value.trim();
+
+        if (nuevaPass.length < 6) {
+          mensaje.style.color = 'red';
+          mensaje.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+          return;
+        }
+        if (nuevaPass !== confirmPass) {
+          mensaje.style.color = 'red';
+          mensaje.textContent = 'Las contraseñas no coinciden.';
+          return;
+        }
+
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || {};
+        if (!usuarios[rut]) {
+          mensaje.style.color = 'red';
+          mensaje.textContent = 'Usuario no encontrado.';
+          return;
+        }
+
+        usuarios[rut].password = nuevaPass;
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+        mensaje.style.color = 'green';
+        mensaje.textContent = 'Contraseña cambiada con éxito. Redirigiendo al inicio de sesión...';
+
+        setTimeout(() => {
+          sessionStorage.removeItem('rutRecuperar');
+          window.location.href = 'login.html';
+        }, 2500);
+      });
+    });
+  </script>
+</body>
+</html>

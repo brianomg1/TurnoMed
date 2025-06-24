@@ -1,0 +1,32 @@
+body.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.card-header.bg-primary {
+  background-color: #0d6efd !important;
+  color: white !important;
+}
+
+.card-header.bg-warning {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.card-header.bg-secondary {
+  background-color: #6c757d !important;
+  color: white !important;
+}
+
+#listaSolicitudes div {
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#listaSolicitudes div:hover {
+  background-color: #e9ecef;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.25rem rgba(220,53,69,.25);
+}

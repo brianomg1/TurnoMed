@@ -1,0 +1,20 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.card-header h4,
+.card-header h5 {
+  font-weight: bold;
+}
+
+textarea::placeholder {
+  color: #adb5bd;
+}
+
+#alertaResultado {
+  transition: opacity 0.3s ease;
+}

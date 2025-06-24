@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TurnoMed | Compartir Turnos</title>
+  <link rel="stylesheet" href="css/compartir.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">TurnoMed</div>
+    <ul class="nav-links">
+      <li><a href="admin.html">Inicio</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="logout.html">Salir</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h1>Compartir Mis Turnos</h1>
+
+    <button id="btnGenerar">Generar Enlace</button>
+
+    <div id="seccionEnlace" class="oculto">
+      <p><strong>Enlace generado (válido por 48 horas):</strong></p>
+      <input type="text" id="enlaceGenerado" readonly>
+      <p id="expiracion"></p>
+
+      <label for="correos">Correos destino (máx. 3):</label>
+      <input type="text" id="correos" placeholder="correo1@example.com, correo2@example.com" />
+      <button id="btnEnviar">Enviar Enlace</button>
+
+      <p id="mensajeAccesos"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 TurnoMed</p>
+  </footer>
+
+  <script src="js/compartir.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitar Cambio Urgente - TurnoMed</title>
+  <link rel="stylesheet" href="css/cambioUrgente.css" />
+</head>
+<body class="home-view">
+
+  <header class="app-header">
+    <h1 class="app-title">Cambio Urgente de Turno</h1>
+    <p class="app-subtitle">Solicita reemplazo a un colega del área</p>
+  </header>
+
+  <nav class="main-menu">
+    <div class="menu-container">
+      <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="index.html" onclick="cerrarSesion()"> Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="welcome-container">
+    <section>
+      <h3>Formulario de Solicitud</h3>
+
+      <form id="formCambioUrgente">
+        <div class="form-group mb-3">
+          <label for="colega">Seleccionar colega del área</label>
+          <select id="colega" class="form-control" required>
+            <option value="">-- Seleccionar funcionario --</option>
+            <option value="carlos.lopez">Carlos López</option>
+            <option value="maria.gomez">María Gómez</option>
+            <option value="ana.mendez">Ana Méndez</option>
+          </select>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="asunto">Asunto</label>
+          <input type="text" id="asunto" class="form-control" placeholder="Ej: Cambio por emergencia" required />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="mensaje">Mensaje (máx. 200 caracteres)</label>
+          <textarea id="mensaje" class="form-control" maxlength="200" required></textarea>
+        </div>
+
+        <div class="form-check mb-3">
+          <input type="checkbox" id="urgente" class="form-check-input" />
+          <label for="urgente" class="form-check-label">Marcar como urgente</label>
+        </div>
+
+        <button type="submit" class="btn btn-submit">Enviar Solicitud</button>
+      </form>
+
+      <div id="mensajeExito" class="notification" style="display: none;">
+         Solicitud enviada correctamente al colega y coordinador.
+      </div>
+    </section>
+
+    <section id="historialSeccion" style="margin-top: 3rem; display: none;">
+      <h3>Historial de Solicitudes Urgentes</h3>
+
+      <div class="print-header">
+        <p><strong>Usuario:</strong> <span id="nombreUsuarioPrint">-</span></p>
+        <p><strong>Fecha:</strong> <span id="fechaHoyPrint">-</span></p>
+      </div>
+
+      <table id="tablaHistorial" class="table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Destinatario</th>
+            <th>Asunto</th>
+            <th>Mensaje</th>
+            <th>Urgente</th>
+            <th class="col-accion">Acción</th>
+          </tr>
+        </thead>
+        <tbody id="bodyHistorial"></tbody>
+      </table>
+
+      <div class="historial-acciones">
+        <button onclick="imprimirPDF()" class="btn btn-submit">Imprimir / PDF</button>
+        <button id="btnExportarExcel" class="btn btn-submit"> Exportar a Excel</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>TurnoMed &copy; 2025 - Cambio de Turnos Urgentes</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="js/cambio-urgente.js"></script>
+</body>
+</html>

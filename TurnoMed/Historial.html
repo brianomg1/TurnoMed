@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Historial de Cambios de Turno - TurnoMed</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/historial.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">TurnoMed</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTurnoMed" aria-controls="navbarTurnoMed" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTurnoMed">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="inicio.html">Panel Principal</a></li>
+        <li class="nav-item"><a class="nav-link" href="calendario.html">Calendario</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="historial.html">Historial</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-primary text-center">Historial de Cambios de Turno</h1>
+  <ul id="historialLista" class="list-group shadow-sm rounded overflow-hidden"></ul>
+</div>
+
+<!-- Modal detalle -->
+<div class="modal fade" id="modalDetalleTurno" tabindex="-1" aria-labelledby="modalDetalleTurnoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content shadow rounded">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="modalDetalleTurnoLabel">Detalles del Turno</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body p-4" id="detalleTurnoBody"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/historial.js"></script>
+</body>
+</html>

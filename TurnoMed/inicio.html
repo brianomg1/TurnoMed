@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TurnoMed | Panel Principal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">TurnoMed</a>
+    <div class="d-flex align-items-center">
+      <span id="nombreUsuarioActual" class="text-white fw-bold me-3"></span>
+      <button class="btn btn-outline-light btn-sm" onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+</nav>
+
+
+<main class="container py-5">
+  <h1 class="text-primary mb-4">Bienvenido a TurnoMed</h1>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <a href="calendario.html" class="card card-body text-center shadow-sm text-decoration-none">
+      <h5>Calendario</h5>
+      <p>Ver turnos asignados</p>
+    </a>
+  </div>
+  <div class="col">
+    <a href="incidencias.html" class="card card-body text-center shadow-sm text-decoration-none">
+      <h5>Incidencias</h5>
+      <p>Registrar problemas o ausencias</p>
+    </a>
+  </div>
+  <div class="col">
+    <a href="historial.html" class="card card-body text-center shadow-sm text-decoration-none">
+      <h5>Historial</h5>
+      <p>Ver cambios de turno</p>
+    </a>
+  </div>
+  <div class="col">
+    <a href="solicitar-cambio.html" class="card card-body text-center shadow-sm text-decoration-none">
+      <h5>Solicitar Cambio</h5>
+      <p>Proponer un cambio de turno al coordinador</p>
+    </a>
+  </div>
+  <div class="col">
+    <a href="reportes.html" class="card card-body text-center shadow-sm text-decoration-none">
+      <h5>Reportes</h5>
+      <p>Generar reportes de asistencia y cambios de turnos</p>
+    </a>
+  </div>
+</div>
+
+
+</div>
+
+  
+</main>
+
+<script src="js/panel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+/* General */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+h1, h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  color: #555;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a.active {
+  font-weight: bold;
+}
+
+/* Header */
+.app-header {
+  background-color: #3498db;
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.app-subtitle {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+/* Menu */
+.main-menu {
+  background-color: #2c3e50;
+}
+
+.menu-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menu-container li {
+  margin: 0.5rem 1rem;
+}
+
+.menu-container a {
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.menu-container a:hover,
+.menu-container a.active {
+  background-color: #1abc9c;
+}
+
+/* Main Container */
+.welcome-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario */
+.form-group, .form-check {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Checkbox */
+.form-check-input {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Botón */
+.btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.btn-submit {
+  margin-top: 0.5rem;
+}
+
+/* Notificación de éxito */
+.notification {
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f1f1f1;
+}
+
+.col-accion {
+  width: 100px;
+  text-align: center;
+}
+
+/* Acciones del historial */
+.historial-acciones {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .menu-container ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-container li {
+    margin: 0.5rem 0;
+  }
+
+  .historial-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

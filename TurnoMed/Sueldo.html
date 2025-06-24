@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sueldo Mensual Avanzado</title>
+  <link rel="stylesheet" href="css/sueldo.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">TurnoMed</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+      <li><a href="logout.html">Cerrar Sesión</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Mis ingresos mensuales</h2>
+
+    <div class="filtros">
+      <label for="selectAno">Año:</label>
+      <select id="selectAno"></select>
+
+      <label for="selectMes">Mes:</label>
+      <select id="selectMes"></select>
+    </div>
+
+    <section id="detalleSueldo" class="detalle-sueldo">
+      <h3>Detalle del sueldo seleccionado</h3>
+      <table>
+        <thead>
+          <tr><th>Mes</th><th>Horas</th><th>Valor Hora</th><th>Sueldo</th></tr>
+        </thead>
+        <tbody id="tabla-sueldos">
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grafico-container">
+      <canvas id="graficoSueldos" width="600" height="300"></canvas>
+    </section>
+
+    <div class="botones">
+      <button id="btnExportar">Exportar a Excel</button>
+      <button id="btnImprimir">Imprimir</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/sueldo.js"></script>
+</body>
+</html>

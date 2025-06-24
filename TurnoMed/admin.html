@@ -1,44 +1,106 @@
 <!DOCTYPE html>
-<html lang="es" class="admin-view">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Historial de Cambios de Turnos - Admin</title>
-  <link rel="stylesheet" href="calendario.css">
-  <script defer src="calendario.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TurnoMed - Panel Administrador</title>
+  <link rel="stylesheet" href="css/admin.css" />
 </head>
-<body class="admin-view">
+<body>
 
-  <!-- Menú de navegación privado -->
-  <nav>
-    <ul>
-      <li><a href="index.html" id="inicioLink">Inicio</a></li>
-      <li><a href="coordinador.html" id="coordinadorLink">Coordinador</a></li>
-      <li><a href="funcionario.html" id="funcionarioLink">Funcionario</a></li>
-      <li><a href="admin.html" id="adminLink">Administrador</a></li>
+  <nav class="navbar" role="navigation" aria-label="Menú principal">
+    <div class="logo">TurnoMed Admin</div>
+    <ul class="nav-links">
+      <li>
+        <button class="btn btn-outline-light btn-sm" onclick="cerrarSesion()" aria-label="Cerrar sesión">
+          Cerrar sesión
+        </button>
+      </li>
     </ul>
   </nav>
 
-  <!-- Contenido del historial -->
-  <main>
-    <h1>Historial de Cambios de Turnos</h1>
-    <div class="tabla-contenedor">
-      <table>
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Horario</th>
-            <th>Motivo</th>
-            <th>Fecha/Hora Registro</th>
-            <th>Coordinador</th>
-            <th>Funcionario</th>
-          </tr>
-        </thead>
-        <tbody id="adminHistorialBody">
-          <!-- JS inserta aquí -->
-        </tbody>
-      </table>
-    </div>
+  <main class="container" role="main">
+    <h1>Panel de Administrador</h1>
+
+    <section class="card-grid">
+      <article class="card" tabindex="0" aria-label="Administrar usuarios">
+        <h2>Usuarios</h2>
+        <p>Gestiona los usuarios, sus roles y permisos.</p>
+        <a href="usuario.html" class="btn">Ver Usuarios</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Ver reportes">
+        <h2>Reportes</h2>
+        <p>Genera y revisa reportes de asistencia, turnos y cambios.</p>
+        <a href="reportes.html" class="btn">Ver Reportes</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Calendario personalizado por funcionario">
+        <h2>Calendario Funcionario</h2>
+        <p>Calendario personalizado por funcionario para ver sus turnos.</p>
+        <a href="calendar-funcionario.html" class="btn">Ver Calendario</a>
+      </article>
+      
+      <article class="card" tabindex="0" aria-label="Ver calendario general">
+        <h2>Calendario</h2>
+        <p>Visualiza todos los turnos asignados en el calendario general.</p>
+        <a href="calendario.html" class="btn">Ver Calendario</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Solicitar cambio urgente de turno">
+        <h2>Cambio Urgente</h2>
+        <p>Solicita un cambio inmediato de turno por situaciones imprevistas.</p>
+        <a href="cambio-urgente.html" class="btn">Solicitar Cambio</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Ver estadísticas y gráficos">
+        <h2>Estadísticas</h2>
+        <p>Consulta gráficos y estadísticas sobre turnos, asistencia y rendimiento.</p>
+        <a href="estadisticas.html" class="btn">Ver Estadísticas</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Ver historial de turnos y cambios">
+        <h2>Historial</h2>
+        <p>Revisa el historial completo de turnos y cambios realizados.</p>
+        <a href="historial.html" class="btn">Ver Historial</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Gestionar incidencias y reportes">
+        <h2>Incidencias</h2>
+        <p>Registra y administra incidencias relacionadas con turnos y personal.</p>
+        <a href="incidencias.html" class="btn">Ver Incidencias</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Enviar notificaciones masivas">
+        <h2>Notificaciones</h2>
+        <p>Envía mensajes y notificaciones masivas a grupos o funcionarios.</p>
+        <a href="notificaciones.html" class="btn">Enviar Notificaciones</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Administrar permisos y vacaciones">
+        <h2>Permisos</h2>
+        <p>Gestiona los permisos y vacaciones del personal.</p>
+        <a href="permisos.html" class="btn">Ver Permisos</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Consultar sueldo y pagos">
+        <h2>Sueldo</h2>
+        <p>Consulta tus ingresos, horas trabajadas y detalles de pagos.</p>
+        <a href="sueldo.html" class="btn">Ver Sueldo</a>
+      </article>
+
+      <article class="card" tabindex="0" aria-label="Compartir mis turnos con terceros">
+        <h2>Compartir Turnos</h2>
+        <p>Genera un enlace seguro con tus turnos para compartir con colegas o familiares.</p>
+        <a href="compartir-turnos.html" class="btn">Compartir</a>
+      </article>
+    </section>
   </main>
 
+  <footer role="contentinfo">
+    © 2025 TurnoMed. Todos los derechos reservados.
+  </footer>
+
+  <script src="js/admin.js"></script>
 </body>
 </html>

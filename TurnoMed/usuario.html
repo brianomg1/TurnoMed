@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestión de Usuarios - Admin</title>
+  <link rel="stylesheet" href="css/usuarios.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Gestión de Cuentas de Usuarios</h2>
+
+    <section id="formularioUsuario">
+      <h3>Crear / Modificar Usuario</h3>
+      <form id="formUsuario">
+        <input type="hidden" id="usuarioId" value="" />
+        
+        <label>RUT:
+          <input type="text" id="rut" placeholder="Ej: 12345678-9" required />
+        </label>
+        <label>Nombre:
+          <input type="text" id="nombre" required />
+        </label>
+        <label>Correo:
+          <input type="email" id="correo" required />
+        </label>
+        <label>Contraseña:
+          <input type="password" id="contrasena" placeholder="Ingrese contraseña" />
+        </label>
+        <label>Cargo:
+          <input type="text" id="cargo" required />
+        </label>
+        <label>Área de trabajo:
+          <input type="text" id="area" required />
+        </label>
+        <label>Rol:
+          <select id="rol" required>
+            <option value="empleado">Empleado</option>
+            <option value="administrador">Administrador</option>
+          </select>
+        </label>
+        <button type="submit" id="btnGuardar">Guardar</button>
+        <button type="button" id="btnCancelar">Cancelar</button>
+      </form>
+    </section>
+
+    <section id="listaUsuarios">
+      <h3>Usuarios Registrados</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>RUT</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Cargo</th>
+            <th>Área</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaUsuarios">
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="js/usuarios.js"></script>
+</body>
+</html>

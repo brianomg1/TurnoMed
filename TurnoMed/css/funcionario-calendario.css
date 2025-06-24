@@ -1,0 +1,49 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+nav {
+  margin-top: 0.5em;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 0.5em;
+  background: white;
+  color: #007bff;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #ffffffcc;
+}
+
+.filtros {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  padding: 1em;
+}
+
+#calendar {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1em;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
