@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('registerForm');
   const errorEl = document.getElementById('error');
+  const rolLabel = document.querySelector('label[for="rol"]');
+  const rolSelect = document.getElementById('rol');
+
+  const rolUsuario = localStorage.getItem('rolUsuario');
+  if (rolUsuario === 'admin') {
+    rolLabel.style.display = 'block';
+    rolSelect.style.display = 'block';
+    rolSelect.setAttribute('required', '');
+  } else {
+    rolLabel.style.display = 'none';
+    rolSelect.style.display = 'none';
+    rolSelect.removeAttribute('required');
+  }
 
   form.addEventListener('submit', e => {
     e.preventDefault();
@@ -11,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const password = form.password.value.trim();
     const password2 = form.password2.value.trim();
 
-    if (!rut || !nombre || !correo || !password || !password2) {
+    const rol = rolSelect.style.display === 'block' ? rolSelect.value : 'empleado';
+
+    if (!rut || !nombre || !correo || !password || !password2 || (rolSelect.style.display === 'block' && !rol)) {
       errorEl.style.color = 'red';
       errorEl.textContent = 'Por favor completa todos los campos.';
       return;
@@ -27,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
       if (!Array.isArray(usuarios)) usuarios = [];
-    } catch (e) {
+    } catch {
       usuarios = [];
     }
 
@@ -44,13 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
       contrasena: password,
       cargo: 'No asignado',
       area: 'No asignado',
-      rol: 'empleado'
+      rol
     });
 
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
     errorEl.style.color = 'green';
-    errorEl.textContent = 'Registro exitoso. Redirigiendo...';
+    errorEl.textContent = 'Registro exitoso. Redirigiendo al login...';
 
     setTimeout(() => {
       window.location.href = 'login.html';

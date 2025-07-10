@@ -3,105 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TurnoMed - Gestión de Turnos</title>
+  <title>TurnoMed - Calendario</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+
   <link rel="stylesheet" href="css/calendario.css" />
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">TurnoMed</a>
-    <button id="btnAsignarTurno" class="btn btn-light btn-sm">Asignar Turno</button>
-  </div>
-
-</nav>
-
-<main class="container my-4">
-  <div id="calendar"></div>
-
-  <div class="card mt-4">
-    <div class="card-header d-flex justify-content-between align-items-center" style="cursor:pointer" id="toggleCard">
-      <h5 class="mb-0">Estadísticas</h5>
-      <span id="iconToggle" style="font-size: 1.5rem;">▼</span>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">TurnoMed</a>
     </div>
-    <div class="card-body" id="cardBody">
-      <canvas id="graficoTurnos" height="200"></canvas>
-      <h6 class="mt-4">Sueldo Estimado: <span id="sueldoEstimadoTexto">$0</span></h6>
+  </nav>
+
+  <main class="container my-4">
+    <h2 class="mb-4 text-center">Mis Turnos Asignados</h2>
+
+    <div id="calendar" class="mb-4"></div>
+
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center" style="cursor:pointer" id="toggleCard">
+        <h5 class="mb-0">Estadísticas</h5>
+        <span id="iconToggle" style="font-size: 1.5rem;">▼</span>
+      </div>
+      <div class="card-body" id="cardBody">
+        <canvas id="graficoTurnos" height="200"></canvas>
+        <h6 class="mt-4">Sueldo Estimado: <span id="sueldoEstimadoTexto">$0</span></h6>
+      </div>
     </div>
-  </div>
 
-  <p id="noTurnosMsg" class="text-center mt-3 d-none">No hay turnos asignados.</p>
-</main>
+    <p id="noTurnosMsg" class="text-center mt-3 d-none">No hay turnos asignados.</p>
+  </main>
 
-<!-- Toast Notificación -->
-<div id="notificacion" class="toast align-items-center text-bg-success border-0 position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true" style="display:none;">
-  <div class="d-flex">
-    <div class="toast-body" id="mensajeNotificacion"></div>
-    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
-  </div>
-</div>
-
-<!-- Modal Asignar / Editar Turno -->
-<div class="modal fade" id="modalTurno" tabindex="-1" aria-labelledby="modalTurnoLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form id="turnoForm" class="p-4">
-        <input type="hidden" id="inputId" />
-
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTurnoLabel">Asignar Turno</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-
-        <div class="modal-body">
-          <div class="mb-3">
-            <label for="funcionario" class="form-label">Funcionario</label>
-            <select id="funcionario" class="form-select" required></select>
-          </div>
-
-          <div class="mb-3">
-            <label for="area" class="form-label">Área</label>
-            <select id="area" class="form-select" required>
-              <option value="" disabled selected>Seleccione área</option>
-              <option value="Urgencias">Urgencias</option>
-              <option value="Pediatría">Pediatría</option>
-              <option value="Cirugía">Cirugía</option>
-            </select>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputFecha" class="form-label">Fecha</label>
-            <input type="date" id="inputFecha" class="form-control" required />
-          </div>
-
-          <div class="mb-3">
-            <label for="horario" class="form-label">Horario</label>
-            <select id="horario" class="form-select" required>
-              <option value="" disabled selected>Seleccionar horario</option>
-              <option value="08:00 - 16:00">08:00 - 16:00</option>
-              <option value="16:00 - 00:00">16:00 - 00:00</option>
-              <option value="00:00 - 08:00">00:00 - 08:00</option>
-            </select>
-          </div>
-
-          <div id="errorTurno" class="alert alert-danger d-none"></div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" id="btnEliminarTurno" class="btn btn-danger d-none">Eliminar</button>
-          <button type="submit" class="btn btn-primary">Guardar Turno</button>
-        </div>
-      </form>
+  <div id="notificacion" class="toast align-items-center text-bg-success border-0 position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true" style="display:none;">
+    <div class="d-flex">
+      <div class="toast-body" id="mensajeNotificacion"></div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
     </div>
   </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/calendario.js"></script>
+  <div class="modal fade" id="modalTurno" tabindex="-1" aria-labelledby="modalTurnoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="turnoForm" class="p-4">
+          <input type="hidden" id="inputId" />
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTurnoLabel">Asignar Turno</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="funcionario" class="form-label">Funcionario</label>
+              <select id="funcionario" class="form-select" required></select>
+            </div>
+
+            <div class="mb-3">
+              <label for="area" class="form-label">Área</label>
+              <select id="area" class="form-select" required>
+                <option value="" disabled selected>Seleccione área</option>
+                <option value="Urgencias">Urgencias</option>
+                <option value="Pediatría">Pediatría</option>
+                <option value="Cirugía">Cirugía</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="inputFecha" class="form-label">Fecha</label>
+              <input type="date" id="inputFecha" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="horario" class="form-label">Horario</label>
+              <select id="horario" class="form-select" required>
+                <option value="" disabled selected>Seleccionar horario</option>
+                <option value="08:00 - 16:00">08:00 - 16:00</option>
+                <option value="16:00 - 00:00">16:00 - 00:00</option>
+                <option value="00:00 - 08:00">00:00 - 08:00</option>
+              </select>
+            </div>
+
+            <div id="errorTurno" class="alert alert-danger d-none"></div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" id="btnEliminarTurno" class="btn btn-danger d-none">Eliminar</button>
+            <button type="submit" class="btn btn-primary">Guardar Turno</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/calendario.js"></script>
 
 </body>
 </html>

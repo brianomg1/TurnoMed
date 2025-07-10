@@ -1,76 +1,83 @@
 body {
-  background-color: #f0f4f8;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
   margin: 0;
   padding: 0;
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-.contenedor {
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
-}
-
-.caja {
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+.container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  width: 350px;
+  text-align: center;
 }
 
 h1 {
-  text-align: center;
-  color: #2563eb;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
 }
 
-.descripcion {
-  text-align: center;
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-.formulario label {
+label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
-.formulario input {
+input[type="email"] {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+  border-radius: 4px;
 }
 
-.formulario button {
+button {
   width: 100%;
-  padding: 10px;
-  background-color: #2563eb;
-  color: white;
+  padding: 0.6rem;
+  background-color: #007bff;
   border: none;
-  border-radius: 6px;
-  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.formulario button:hover {
-  background-color: #1e40af;
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
 }
 
-.mensaje-exito {
-  display: none;
-  margin-top: 10px;
-  color: green;
-  font-weight: 500;
-  text-align: center;
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: #d93025;
+  font-weight: 600;
+  min-height: 1.2em;
+  margin-top: 1rem;
+}
+
+.success-message {
+  color: #188038;
+  font-weight: 600;
+  min-height: 1.2em;
+  margin-top: 1rem;
+}
+
+a {
+  display: block;
+  margin-top: 1.5rem;
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

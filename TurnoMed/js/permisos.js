@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     firstDay: 1,
     events: [],
   });
-
   calendario.render();
 
+  
   function calcularDias(fechaInicio, fechaFin) {
     const start = new Date(fechaInicio);
     const end = new Date(fechaFin);
@@ -33,12 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
   }
 
+  
   function diasUsados(funcionario) {
     return historial
       .filter(s => s.funcionario === funcionario && s.estado === "Aceptado")
       .reduce((acc, s) => acc + calcularDias(s.inicio, s.fin), 0);
   }
 
+  
   function ordenarPorFechaInicio(array) {
     return array.sort((a, b) => new Date(a.inicio) - new Date(b.inicio));
   }
@@ -53,13 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    pendientes.forEach((sol, i) => {
+    pendientes.forEach((sol) => {
       const usados = diasUsados(sol.funcionario);
       const duracion = calcularDias(sol.inicio, sol.fin);
+
       if (usados + duracion > MAX_PERMISOS_ANUALES) {
         const divAlerta = document.createElement("div");
         divAlerta.className = "alert alert-danger";
-        divAlerta.textContent = `El funcionario ${sol.funcionario} ha agotado sus permisos anuales.`;
+        divAlerta.textContent = `El funcionario ${sol.funcionario} ha agotado sus permisos anuales (${MAX_PERMISOS_ANUALES} días).`;
         listaSolicitudes.appendChild(divAlerta);
         return;
       }
@@ -86,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tablaHistorialBody.innerHTML = `<tr><td colspan="5" class="text-center text-muted">No hay historial de decisiones.</td></tr>`;
       return;
     }
+
     let historialOrdenado = ordenarPorFechaInicio(historial);
     historialOrdenado.forEach(sol => {
       const tr = document.createElement("tr");
@@ -117,6 +121,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.tagName === "BUTTON") {
       const id = Number(e.target.dataset.id);
       const accion = e.target.dataset.accion;
+
+      const solicitud = solicitudes.find(s => s.id === id);
+      if (!solicitud) return;
+
+      const usados = diasUsados(solicitud.funcionario);
+      const duracion = calcularDias(solicitud.inicio, solicitud.fin);
+      if (accion === "aceptar" && (usados + duracion > MAX_PERMISOS_ANUALES)) {
+        alert(`No se puede aceptar. El funcionario ${solicitud.funcionario} agotó sus permisos anuales.`);
+        return;
+      }
+
       indiceSolicitudInput.value = id;
       accionSolicitudInput.value = accion;
       motivoRespuesta.value = "";
@@ -125,9 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  
   formRespuesta.addEventListener("submit", e => {
     e.preventDefault();
     const motivo = motivoRespuesta.value.trim();
+
     if (motivo.length < 5) {
       motivoRespuesta.classList.add("is-invalid");
       motivoRespuesta.focus();

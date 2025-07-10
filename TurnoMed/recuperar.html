@@ -4,20 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Recuperar Contraseña - TurnoMed</title>
-  <link rel="stylesheet" href="css/login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/recuperar.css">
 </head>
 <body>
-  <main class="login-container">
+  <div class="container">
     <h1>Recuperar Contraseña</h1>
+
     <form id="recuperarForm" novalidate>
-      <label for="rutRecuperar">Ingresa tu RUT registrado:</label>
-      <input type="text" id="rutRecuperar" name="rutRecuperar" placeholder="12345678-9" required />
+      <label for="correoRecuperar">Ingresa tu correo registrado:</label>
+      <input
+        type="email"
+        id="correoRecuperar"
+        name="correoRecuperar"
+        placeholder="ejemplo@gmail.com"
+        required
+      />
       <button type="submit">Enviar enlace de recuperación</button>
     </form>
-    <p id="mensaje" class="error-message"></p>
-    <p><a href="login.html">Volver al inicio de sesión</a></p>
-  </main>
 
+    <p id="mensaje"></p>
+    <a href="login.html">← Volver al inicio de sesión</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="js/recuperar.js"></script>
 </body>
 </html>

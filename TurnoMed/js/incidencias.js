@@ -8,21 +8,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const cancelarBtn = document.getElementById("cancelarBtn");
 
   let turnoSeleccionado = null;
-  const nombreFuncionario = "Juan Pérez"; 
-  
 
-  const turnos = generarTurnosRecientes();
+  const nombreFuncionario = localStorage.getItem("nombreUsuario") || "Funcionario";
+  const saludoUsuario = document.getElementById("nombreUsuarioActual");
+  if (saludoUsuario) saludoUsuario.textContent = "Hola, " + nombreFuncionario;
+
+  const HORARIOS = ["08:00 - 16:00", "16:00 - 00:00", "00:00 - 08:00"];
+  const AREAS = ["Urgencias", "Pediatría", "UCI"];
 
   function generarTurnosRecientes() {
-    const hoy = new Date();
-    return [0, 1, 2].map((i) => {
-      const fecha = new Date(hoy);
-      fecha.setDate(hoy.getDate() - i);
+    return Array.from({ length: 3 }, (_, i) => {
+      const fecha = new Date();
+      fecha.setDate(fecha.getDate() - i);
       return {
-        id: i + 1,
+        id: (i + 1).toString(),
         fecha: fecha.toISOString().split("T")[0],
-        hora: "08:00 - 16:00",
-        area: ["Urgencias", "Pediatría", "UCI"][i],
+        hora: HORARIOS[i % HORARIOS.length],
+        area: AREAS[i % AREAS.length],
       };
     });
   }
@@ -39,9 +41,46 @@ document.addEventListener("DOMContentLoaded", function () {
         formSeccion.style.display = "block";
         mensajeRespuesta.classList.add("d-none");
         window.scrollTo({ top: formSeccion.offsetTop, behavior: "smooth" });
+        mostrarResumenTurno(turno);
       });
       listaTurnos.appendChild(li);
     });
+  }
+
+  function mostrarResumenTurno(turno) {
+    let resumen = document.getElementById("resumenTurno");
+    if (!resumen) {
+      resumen = document.createElement("div");
+      resumen.id = "resumenTurno";
+      resumen.className = "alert alert-info";
+      formSeccion.insertBefore(resumen, formIncidencia);
+    }
+    resumen.textContent = `Reportando incidencia para el turno: ${turno.fecha} - ${turno.hora} - Área: ${turno.area}`;
+  }
+
+  function obtenerTurnoDesdeURL() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const fecha = params.get("fecha");
+    const hora = params.get("hora");
+    const area = params.get("area");
+    if (id && fecha && hora && area) {
+      return { id, fecha, hora, area };
+    }
+    return null;
+  }
+
+  const turnos = generarTurnosRecientes();
+  const turnoURL = obtenerTurnoDesdeURL();
+
+  if (turnoURL) {
+    listaTurnos.style.display = "none";
+    turnoSeleccionado = turnoURL;
+    formSeccion.style.display = "block";
+    mensajeRespuesta.classList.add("d-none");
+    mostrarResumenTurno(turnoSeleccionado);
+  } else {
+    mostrarTurnos();
   }
 
   cancelarBtn.addEventListener("click", () => {
@@ -58,6 +97,16 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    if (!descripcion.value.trim()) {
+      alert("La descripción es obligatoria.");
+      return;
+    }
+
+    if (!categoria.value) {
+      alert("La categoría es obligatoria.");
+      return;
+    }
+
     const datosIncidencia = {
       descripcion: descripcion.value.trim(),
       categoria: categoria.value,
@@ -66,25 +115,23 @@ document.addEventListener("DOMContentLoaded", function () {
       turno: turnoSeleccionado,
     };
 
-    console.log("Incidencia enviada:", datosIncidencia); 
+    let incidencias = [];
+    try {
+      incidencias = JSON.parse(localStorage.getItem("incidencias")) || [];
+    } catch {
+      incidencias = [];
+    }
+    incidencias.push(datosIncidencia);
+    localStorage.setItem("incidencias", JSON.stringify(incidencias));
+
+    console.log("Incidencia enviada:", datosIncidencia);
 
     mensajeRespuesta.className = "alert alert-success mt-3";
     mensajeRespuesta.textContent = "Incidencia enviada correctamente al coordinador.";
     mensajeRespuesta.classList.remove("d-none");
+
     formIncidencia.reset();
     formSeccion.style.display = "none";
     turnoSeleccionado = null;
   });
-
-  mostrarTurnos();
-
-  document.addEventListener('DOMContentLoaded', () => {
-  const nombre = localStorage.getItem("nombreUsuario");
-  const nombreEl = document.getElementById("nombreUsuarioActual");
-
-  if (nombre && nombreEl) {
-    nombreEl.textContent = `Hola, ${nombre}`;
-  }
-});
-
 });

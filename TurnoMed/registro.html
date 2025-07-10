@@ -25,6 +25,13 @@
       <label for="password2">Confirmar contraseña:</label>
       <input type="password" id="password2" name="password2" required />
 
+      <label for="rol" class="rol-label" style="display:none;">Rol:</label>
+      <select id="rol" name="rol" required style="display:none;">
+        <option value="" disabled selected>Selecciona un rol</option>
+        <option value="empleado">Empleado</option>
+        <option value="admin">Coordinador</option>
+      </select>
+
       <button type="submit">Registrar</button>
     </form>
     <p id="error" class="error-message"></p>
